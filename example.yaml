@@ -1,0 +1,5 @@
+---
+streams:
+- extension: "mp4"
+  filename: "some-video-name"
+  streamFile: 'https://some-website.com/index-f4-v1-a1.m3u8 OR C://Users/steve/index.m3u8'
