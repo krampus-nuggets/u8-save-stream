@@ -3,8 +3,7 @@ import os
 import sys
 
 # Internal Imports
-from modules.engine import download_stream, download_all_streams
-from modules.utils import check_config, read_config, term_output
+from modules.engine import download_all_streams
 
 root_dir = os.path.dirname(__file__)
 config_uri = f"{root_dir}\\config.yaml"
