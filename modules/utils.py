@@ -1,6 +1,7 @@
 # Package Imports
 import os
 import yaml
+from sys import platform
 from colorama import Fore, Back, Style
 
 # Internal Imports
@@ -42,3 +43,10 @@ def term_output(type: str, value: str):
     return
 
   print(Style.RESET_ALL + value)
+
+# HELPER - Check OS
+def is_windows():
+  if platform == "win32":
+    return True
+  
+  return False
