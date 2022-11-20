@@ -4,6 +4,7 @@ import yaml
 from sys import platform
 from colorama import Fore, Back, Style
 from glob import glob
+from typing import List
 
 # Internal Imports
 
@@ -52,7 +53,7 @@ def is_windows():
   return False
 
 # HELPER - Get filename from files in directory by extension
-def get_filenames(path, extension):
+def get_filenames(path: str, extension: str):
   glob_path = f"{path}\\*.{extension}" if is_windows() else f"{path}/*.{extension}"
   files = glob(glob_path)
 
@@ -64,8 +65,12 @@ def get_filenames(path, extension):
   return result_files
 
 # HELPER - Get remainder files to be downloaded
-def get_valid_streams(filenames, streams):
+def get_valid_streams(filenames: List, streams: List):
   try:
+    # CHECK - Downloads not started yet
+    if len(filenames) == 0:
+      return streams
+
     unsaved_streams = []
 
     for file in filenames:
