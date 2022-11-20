@@ -3,9 +3,9 @@ import os
 import yaml
 from sys import platform
 from colorama import Fore, Back, Style
+from glob import glob
 
 # Internal Imports
-
 
 # CHECK - File Exists
 def check_config(config_uri: str):
@@ -63,3 +63,16 @@ def get_filenames(path, extension):
 
   return result_files
 
+# HELPER - Get remainder files to be downloaded
+def get_valid_streams(filenames, streams):
+  try:
+    unsaved_streams = []
+
+    for file in filenames:
+      for stream in streams:
+        if file == stream["filename"]:
+          unsaved_streams.append(stream)
+    
+    return unsaved_streams
+  except Exception:
+    return None
