@@ -8,7 +8,7 @@ from modules.utils import check_config, read_config, term_output, is_windows
 
 
 root_dir = os.path.dirname(__file__)
-config_uri = is_windows() if f"{root_dir}\\config.yaml" else f"{root_dir}/config.yaml"
+config_uri = f"{root_dir}\\config.yaml" if is_windows() else f"{root_dir}/config.yaml"
 config_exists = check_config(config_uri)
 
 # CHECK - Config URI is valid
