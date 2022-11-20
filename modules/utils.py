@@ -50,3 +50,16 @@ def is_windows():
     return True
   
   return False
+
+# HELPER - Get filename from files in directory by extension
+def get_filenames(path, extension):
+  glob_path = f"{path}\\*.{extension}" if is_windows() else f"{path}/*.{extension}"
+  files = glob(glob_path)
+
+  # Get only the base file
+  result_files = list(map(lambda file: os.path.basename(file), files))
+  # Strip extension from file
+  result_files = list(map(lambda file: file.split(".")[0], result_files))
+
+  return result_files
+
